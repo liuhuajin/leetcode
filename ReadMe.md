@@ -25,3 +25,11 @@
 
 否则可以确定解落在(n / 2, n]范围内。
 
+###maxinum product of word lengths
+[来源](https://leetcode.com/problems/maximum-product-of-word-lengths/)
+
+一开始想到了排序，然后从大到小进行遍历，但是仍然超时，后来在每次判断是否有相同字符之前，先判断是否乘积大于目前的最大值，可以AC,目前看来，排序并没有什么用处。
+
+网上的题解：
+
+位运算来判断是否含有相同的字符
