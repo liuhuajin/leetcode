@@ -36,3 +36,13 @@
 
 ### Minimum Size Subarray Sum
 思路不难，把计算当前段加和的函数替换下就可以了，o(n)复杂度可解
+
+### Find Peak Element
+
+[来源](https://leetcode.com/problems/find-peak-element/)
+
+[参考](https://siddontang.gitbooks.io/leetcode-solution/content/array/find_peak_element.html)
+
+提到对数复杂度的时候就应该直接想到二分，关于为什么用二分一定能找到值的原因，参见下面：
+
+首先我们找到中间节点mid，如果大于两边返回当前index就可以了，如果左边的节点比mid大，那么我们可以继续在左半区间查找，这里面一定存在一个peak，为什么这么说呢？假设此时的区间范围为[0, mid - 1]， 因为num[mid - 1]一定大于num[mid]了，如果num[mid - 2] <= num[mid - 1]，那么num[mid - 1]就是一个peak。如果num[mid - 2] > num[mid - 1]，那么我们就继续在[0, mid - 2]区间查找，因为num[-1]为负无穷，所以最终我们绝对能在左半区间找到一个peak。同理右半区间一样。
