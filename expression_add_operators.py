@@ -5,7 +5,7 @@ class Solution(object):
         self.op_list = ['*', '-', '+'] 
         for i in xrange(1, len(nums)+1):
             new_op_num = nums[:i]
-            if new_op_num[0] == '0' and not new_op_num == '0':
+            if new_op_num.startswith('00'):
                 continue
             self.dp_search(nums[i:], nums[:i])
         return self.r_l
@@ -20,9 +20,9 @@ class Solution(object):
                 for i in xrange(1, len(nums_remain)+1):
                     new_op_num = nums_remain[:i]
                     new_nums_remain = nums_remain[i:]
-                    if new_op_num[0] == '0' and not new_op_num == '0':
+                    if new_op_num.startswith('00'):
                         continue
-                    operator_str_new = operator_str + op + new_op_num 
+                    operator_str_new = ''.join([operator_str, op, new_op_num])
                     self.dp_search(new_nums_remain, operator_str_new)
 
 if __name__ == '__main__':
